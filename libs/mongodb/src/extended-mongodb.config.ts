@@ -10,5 +10,5 @@ export class ExtendedMongodbConfig {
   @IsString()
   @IsOptional()
   @Expose({ name: `MONGODB_DATABASE` })
-  dataBase? = ``;
+  dataBase: string;
 }

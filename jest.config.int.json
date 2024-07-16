@@ -1,4 +1,0 @@
-{
-  "preset": "./jest.config.base.json",
-  "testRegex": ".*\\.int-spec\\.ts$"
-}

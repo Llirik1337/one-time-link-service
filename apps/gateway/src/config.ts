@@ -1,5 +1,5 @@
 import { Exclude, Expose, Transform } from 'class-transformer';
-import { IsNumber } from 'class-validator';
+import { IsNumber, IsOptional, IsString } from 'class-validator';
 
 @Exclude()
 export class Config {
@@ -10,4 +10,9 @@ export class Config {
     typeof value === `string` ? parseInt(value) : value,
   )
   port = 3000;
+
+  @Expose({ name: `BACKEND_URL` })
+  @IsOptional()
+  @IsString()
+  backendUrl = `http://localhost:3000`;
 }

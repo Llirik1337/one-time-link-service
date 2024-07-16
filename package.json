@@ -1,5 +1,5 @@
 {
-  "name": "ice-box",
+  "name": "one-time-link-service",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -20,8 +20,14 @@
     "test:e2e": "jest --config jest.config.e2e.json",
     "test:unit": "jest --config jest.config.unit.json",
     "prepare": "husky install",
-    "docker:dev-build": "docker build -t ice-box .",
-    "docker:dev-run": "docker run --rm -it -v $(pwd):/app --network host ice-box /bin/bash"
+    "docker:up": "docker compose -f docker-compose-env.yml -f docker-compose-apps.yml up -d",
+    "docker:down": "docker compose -f docker-compose-env.yml -f docker-compose-apps.yml down",
+    "docker:env-up": "docker compose -f docker-compose-env.yml up -d",
+    "docker:env-down": "docker compose -f docker-compose-env.yml down",
+    "docker:apps-up": "docker compose -f docker-compose-apps.yml up -d",
+    "docker:apps-down": "docker compose -f docker-compose-apps.yml down",
+    "docker:dev-build": "docker build -t one-time-link-service .",
+    "docker:dev-run": "docker run --rm -it -v $(pwd):/app --network host one-time-link-service /bin/bash"
   },
   "lint-staged": {
     "**/*.{js,ts,json}": [

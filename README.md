@@ -1,79 +1,54 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+<!--toc:start-->
+- [DESCRIPTION](#description)
+  - [DEVELOPMENT REQUIREMENTS](#development-requirements)
+  - [HOW TO STAT](#how-to-stat)
+  - [HOW TO STOP](#how-to-stop)
+  - [LINK](#link)
+    - [ENV](#env)
+  - [GATEWAY](#gateway)
+    - [ENV](#env)
+<!--toc:end-->
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# DESCRIPTION
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This application implements a one-time link service
 
-## Description
+## DEVELOPMENT REQUIREMENTS
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Go](https://go.dev/) (version 1.19 or later)
 
-## Installation
+## HOW TO STAT
 
-```bash
-$ npm install
+```sh
+npm run docker:up
 ```
 
-## Running the app
+## HOW TO STOP
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```sh
+npm run docker:down
 ```
 
-## Test
+## LINK
 
-```bash
-# unit tests
-$ npm run test
+### ENV
 
-# e2e tests
-$ npm run test:e2e
+| ENV NAME          | REQUIRED | DEFAULT VALUE                    |
+| ----------------- | -------- | -------------------------------- |
+| MONGODB_URL       | ❌       | mongodb://localhost:27017        |
+| MONGODB_DATABASE  | ❌       |                                  |
+| REDIS_URL         | ❌       | 127.0.0.1:6379                   |
+| NATS_URL          | ❌       | nats://127.0.0.1:4222            |
+| LOGGER_FORMATTER  | ❌       | console                          |
+| LOGGER_LOG_LEVELS | ❌       | log\|error\|warn\|debug\|verbose |
 
-# test coverage
-$ npm run test:cov
-```
+## GATEWAY
 
-## Support
+### ENV
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
-
-## Troubleshooting
-
-If you have problems with libssl1.1
-[Download](http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb)
-[Package page](https://ubuntu.pkgs.org/20.04/ubuntu-main-amd64/libssl1.1_1.1.1f-1ubuntu2_amd64.deb.html)
+| ENV NAME          | REQUIRED | DEFAULT VALUE                    |
+| ----------------- | -------- | -------------------------------- |
+| BACKEND_URL       | ❌       | <http://localhost:3000>          |
+| NATS_URL          | ❌       | nats://127.0.0.1:4222            |
+| LOGGER_FORMATTER  | ❌       | console                          |
+| LOGGER_LOG_LEVELS | ❌       | log\|error\|warn\|debug\|verbose |

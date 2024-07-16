@@ -6,12 +6,9 @@ import {
 } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
 import { headers } from 'nats';
-import { type user } from '@app/shared';
 import { L } from '@app/logger';
 import { randomUUID } from 'crypto';
-
-type CommandsType = user.CommandsType;
-type EventsType = user.EventsType;
+import { type CommandsType, type EventsType } from '@app/shared';
 
 @Injectable()
 export class MessageBusService {
@@ -23,7 +20,7 @@ export class MessageBusService {
   async send<Q extends keyof CommandsType>(
     pattern: Q,
     data: CommandsType[Q]['request'],
-  ): Promise<CommandsType[Q]['response'] | undefined> {
+  ): Promise<CommandsType[Q]['response']> {
     const message = this.getMessage(data);
 
     L().log(`NATS Send ${pattern}`, message);

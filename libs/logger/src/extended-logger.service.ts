@@ -16,9 +16,9 @@ export function isCheckNestMessage(message: string): boolean {
 
   const isStatingNestApplication = message === `Starting Nest application...`;
 
-  const isMappedRoute = /^Mapped {.*, .*} route$/.test(message);
+  const isMappedRoute = /^Mapped {.*, .*} .* route$/.test(message);
 
-  const isController = /^.*Controller {.*}:$/.test(message);
+  const isController = /^.*Controller {.*} .*:$/.test(message);
 
   return (
     isStatingNestApplication ||

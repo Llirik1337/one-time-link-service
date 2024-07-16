@@ -9,8 +9,8 @@ import { BaseExceptionFilter } from '@nestjs/core';
 import { type NatsContext } from '@nestjs/microservices';
 import { type Request, type Response } from 'express';
 import { type Observable, throwError } from 'rxjs';
-import { type BaseError } from './base-error';
 import * as errors from './errors';
+import { type BaseError } from './base.error';
 
 const errorsMap = new Map(
   Object.values(errors).map((error) => [error.name, error]),
